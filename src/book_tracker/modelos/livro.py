@@ -28,7 +28,13 @@ class Livro:
         if len(valor_nome_livro.strip()) > 0:
             self.__nome_livro = valor_nome_livro
         else:
-            raise ValueError(f"Nomes de livros vazios não são aceitos!")
+            raise ValueError("Nomes de livros vazios não são aceitos!")
+
+    @staticmethod
+    def validar_nome_livro(valor_nome_livro: str) -> None:
+
+        if not valor_nome_livro.strip():
+            raise ValueError("Nomes de livros vazios não são aceitos!")
 
     @property
     def capitulo(self):
@@ -40,7 +46,13 @@ class Livro:
         if valor_capitulo > 0:
             self.__capitulo = valor_capitulo
         else:
-            raise ValueError(f"Os capítulos só aceitam valores positivos não nulos!")
+            raise ValueError("Os capítulos só aceitam valores positivos não nulos!")
+
+    @staticmethod
+    def validar_capitulo(valor_capitulo: int) -> None:
+
+        if not valor_capitulo > 0:
+            raise ValueError("Os capítulos só aceitam valores positivos não nulos!")
 
     @property
     def autor(self):
@@ -52,7 +64,13 @@ class Livro:
         if len(valor_autor.strip()) > 0:
             self.__autor = valor_autor
         else:
-            raise ValueError(f"Nomes de autores vazios não são aceitos!")
+            raise ValueError("Nomes de autores vazios não são aceitos!")
+
+    @staticmethod
+    def validar_autor(valor_autor: str) -> None:
+
+        if not valor_autor.strip():
+            raise ValueError("Nomes de autores vazios não são aceitos!")
 
     @property
     def avaliacao(self):
@@ -64,7 +82,13 @@ class Livro:
         if 0.0 <= valor_avaliacao <= 5.0:
             self.__avaliacao = valor_avaliacao
         else:
-            raise ValueError(f"As avaliações só vão de 0.0 até 5.0!")
+            raise ValueError("As avaliações só vão de 0.0 até 5.0!")
+
+    @staticmethod
+    def validar_avaliacao(valor_avaliacao: float) -> None:
+
+        if not 0.0 <= valor_avaliacao <= 5.0:
+            raise ValueError("As avaliações só vão de 0.0 até 5.0!")
 
     @property
     def status(self):
@@ -81,4 +105,3 @@ class Livro:
     @property
     def id(self):
         return self.__id
-
